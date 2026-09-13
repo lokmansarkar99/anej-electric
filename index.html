@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>আনেজ ইলেকট্রিক এন্ড হার্ডওয়্যার সার্ভিসিং সেন্টার</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Baloo+Da+2:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<style>
+  :root{
+    --navy:#0d2a4a;
+    --navy-deep:#081c33;
+    --live-yellow:#f5b800;
+    --wire-green:#0e8a4b;
+    --wire-red:#d92b2b;
+    --paper:#fbf7ee;
+    --paper-dim:#f1ead9;
+    --ink:#122236;
+    --ink-soft:#4a5b6e;
+    --line:#dcd2ba;
+    --white:#ffffff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Hind Siliguri', sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.brand-word{
+    font-family:'Baloo Da 2', sans-serif;
+  }
+  img{max-width:100%;display:block;}
+  a{text-decoration:none;color:inherit;}
+  ul{list-style:none;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 20px;}
+
+  /* ===== Top utility bar ===== */
+  .topbar{
+    background:var(--navy-deep);
+    color:#cfe0f0;
+    font-size:0.85rem;
+    padding:7px 0;
+  }
+  .topbar .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;}
+  .topbar span{opacity:.9}
+  .topbar strong{color:var(--live-yellow);}
+
+  /* ===== Header ===== */
+  header{
+    background:var(--navy);
+    padding:16px 0;
+    position:sticky;
+    top:0;
+    z-index:50;
+    box-shadow:0 4px 18px rgba(8,20,38,.25);
+  }
+  .header-row{
+    display:flex;align-items:center;justify-content:space-between;gap:14px;
+  }
+  .logo{display:flex;align-items:center;gap:10px;}
+  .logo-badge{
+    width:46px;height:46px;border-radius:10px;
+    background:linear-gradient(145deg,var(--live-yellow),#d99900);
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.35rem;flex-shrink:0;
+    color:var(--navy-deep);
+    box-shadow:0 4px 14px rgba(245,184,0,.4);
+  }
+  .logo-text .brand-word{
+    color:var(--white);font-size:1.35rem;font-weight:700;line-height:1;
+  }
+  .logo-text small{color:#a9c1d8;font-size:0.68rem;letter-spacing:.3px;}
+  .call-btn{
+    background:var(--wire-green);
+    color:#fff;
+    padding:10px 18px;
+    border-radius:30px;
+    font-weight:600;
+    font-size:0.9rem;
+    display:flex;
+    align-items:center;
+    gap:7px;
+    white-space:nowrap;
+  }
+  .call-btn:active{transform:scale(.97);}
+
+  /* ===== Hero ===== */
+  .hero{
+    position:relative;
+    background:
+      radial-gradient(circle at 88% 15%, rgba(245,184,0,.22), transparent 42%),
+      radial-gradient(circle at 8% 90%, rgba(14,138,75,.18), transparent 40%),
+      linear-gradient(165deg, var(--navy) 0%, var(--navy-deep) 100%);
+    color:#fff;
+    padding:56px 0 64px;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    right:-70px; top:-70px;
+    width:320px;height:320px;
+    background:radial-gradient(circle, rgba(245,184,0,.16), transparent 70%);
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+      linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+    background-size:34px 34px;
+    mask-image:radial-gradient(circle at 70% 30%, #000 0%, transparent 65%);
+    pointer-events:none;
+  }
+  .spark{
+    position:absolute;
+    color:var(--live-yellow);
+    opacity:.5;
+    z-index:1;
+  }
+  .spark-1{top:14%;left:6%;font-size:1.4rem;transform:rotate(-15deg);}
+  .spark-2{bottom:10%;left:20%;font-size:1rem;opacity:.35;}
+  .spark-3{top:60%;right:8%;font-size:1.2rem;opacity:.3;}
+  .hero-inner{
+    position:relative;
+    z-index:2;
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+  }
+  .ribbon{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:rgba(245,184,0,.13);
+    border:1px solid rgba(245,184,0,.4);
+    color:var(--live-yellow);
+    padding:7px 14px;
+    border-radius:30px;
+    font-size:0.82rem;
+    font-weight:600;
+    width:max-content;
+    box-shadow:0 0 0 4px rgba(245,184,0,.06);
+  }
+  .ribbon i{font-size:.85rem;}
+  .hero h1{
+    font-size:2.35rem;
+    font-weight:800;
+    line-height:1.25;
+    color:#fff;
+  }
+  .hero h1 .accent{color:var(--live-yellow);}
+  .hero p.lead{
+    font-size:1.02rem;
+    color:#c6d5e5;
+    max-width:60ch;
+  }
+  .hero-actions{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+  .btn{
+    padding:14px 24px;
+    border-radius:12px;
+    font-weight:700;
+    font-size:0.98rem;
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    transition:transform .15s ease;
+  }
+  .btn:active{transform:scale(.96);}
+  .btn-primary{
+    background:var(--live-yellow);
+    color:var(--navy-deep);
+  }
+  .btn-outline{
+    border:1.5px solid rgba(255,255,255,.35);
+    color:#fff;
+  }
+  .hero-strip{
+    margin-top:8px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+  }
+  .hero-strip .item{
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:12px;
+    padding:12px 10px;
+    text-align:center;
+  }
+  .hero-strip .item .n{
+    font-family:'Baloo Da 2';
+    font-size:1.25rem;
+    font-weight:700;
+    color:var(--live-yellow);
+  }
+  .hero-strip .item .l{
+    font-size:0.72rem;
+    color:#b8c9db;
+    margin-top:2px;
+  }
+
+  /* wire divider */
+  .wire-divider{
+    height:10px;
+    background:repeating-linear-gradient(90deg,
+      var(--wire-red) 0 26px, var(--live-yellow) 26px 52px,
+      var(--wire-green) 52px 78px, var(--navy) 78px 104px);
+  }
+
+  /* ===== Section heading ===== */
+  .section{padding:52px 0;}
+  .section-head{
+    text-align:center;
+    margin-bottom:32px;
+  }
+  .section-head h2{
+    font-size:1.7rem;
+    font-weight:700;
+    color:var(--navy);
+    position:relative;
+    display:inline-block;
+  }
+  .section-head p{
+    color:var(--ink-soft);
+    margin-top:8px;
+    font-size:0.95rem;
+  }
+  .underline-bolt{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:6px;
+    margin-top:10px;
+  }
+  .underline-bolt span{
+    height:4px;width:34px;border-radius:2px;
+  }
+  .underline-bolt span:nth-child(1){background:var(--wire-red);}
+  .underline-bolt span:nth-child(2){background:var(--live-yellow);}
+  .underline-bolt span:nth-child(3){background:var(--wire-green);}
+
+  .alt-bg{background:var(--paper-dim);}
+
+  /* ===== Products grid ===== */
+  .products-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+  }
+  .product-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:18px 14px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    transition:box-shadow .2s ease, border-color .2s ease;
+  }
+  .product-card:hover{border-color:var(--live-yellow);box-shadow:0 10px 26px rgba(13,42,74,.1);transform:translateY(-2px);}
+  .product-card .icon{
+    width:44px;height:44px;
+    border-radius:12px;
+    background:linear-gradient(145deg,var(--paper-dim),#e9e0c9);
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.15rem;
+    color:var(--navy);
+    border:1px solid var(--line);
+  }
+  .product-card h3{
+    font-size:0.95rem;
+    font-weight:600;
+    color:var(--navy);
+  }
+
+  /* ===== Gallery ===== */
+  .gallery-shot{
+    border-radius:18px;
+    overflow:hidden;
+    border:1px solid var(--line);
+    box-shadow:0 10px 30px rgba(13,42,74,.1);
+  }
+  .gallery-caption{
+    text-align:center;
+    color:var(--ink-soft);
+    font-size:0.85rem;
+    margin-top:14px;
+  }
+
+  /* ===== Services ===== */
+  .service-list{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .service-item{
+    display:flex;
+    gap:14px;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:16px;
+    align-items:flex-start;
+  }
+  .service-item .num{
+    flex-shrink:0;
+    width:38px;height:38px;
+    border-radius:10px;
+    background:var(--navy);
+    color:var(--live-yellow);
+    display:flex;align-items:center;justify-content:center;
+    font-weight:700;
+    font-family:'Baloo Da 2';
+  }
+  .service-item h3{font-size:1rem;color:var(--navy);margin-bottom:3px;}
+  .service-item p{font-size:0.88rem;color:var(--ink-soft);}
+
+  .promise-banner{
+    margin-top:30px;
+    background:linear-gradient(120deg,var(--wire-red),#b81f1f);
+    color:#fff;
+    text-align:center;
+    padding:20px 18px;
+    border-radius:16px;
+    font-weight:600;
+    font-size:1.02rem;
+    line-height:1.7;
+  }
+
+  /* ===== Why us ===== */
+  .why-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+  }
+  .why-card{
+    text-align:center;
+    background:#fff;
+    border-radius:14px;
+    padding:22px 14px;
+    border:1px solid var(--line);
+  }
+  .why-card .emoji{
+    width:52px;height:52px;margin:0 auto 12px;
+    border-radius:50%;
+    background:linear-gradient(145deg,var(--navy),var(--navy-deep));
+    color:var(--live-yellow);
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.3rem;
+    box-shadow:0 8px 18px rgba(13,42,74,.18);
+  }
+  .why-card h3{font-size:0.92rem;color:var(--navy);margin-bottom:4px;}
+  .why-card p{font-size:0.8rem;color:var(--ink-soft);}
+
+  /* ===== Owner / trust card ===== */
+  .owner-card{
+    background:var(--navy);
+    color:#fff;
+    border-radius:20px;
+    padding:28px 22px;
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+    align-items:center;
+    text-align:center;
+  }
+  .owner-avatar{
+    width:78px;height:78px;
+    border-radius:50%;
+    background:linear-gradient(145deg,var(--live-yellow),#d99900);
+    display:flex;align-items:center;justify-content:center;
+    font-size:2rem;
+  }
+  .owner-card h3{font-size:1.1rem;}
+  .owner-card .role{color:var(--live-yellow);font-size:0.85rem;font-weight:600;}
+  .owner-contacts{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    width:100%;
+    margin-top:6px;
+  }
+  .contact-pill{
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:12px;
+    padding:12px 16px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    font-size:0.9rem;
+  }
+  .contact-pill .label{color:#a9c1d8;font-size:0.75rem;}
+  .contact-pill .value{font-weight:700;font-family:'Baloo Da 2';letter-spacing:.3px;}
+  .contact-pill i{
+    font-size:1.15rem;
+    width:38px;height:38px;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    background:rgba(255,255,255,.1);
+  }
+  .contact-pill:nth-child(1) i{color:#25D366;}
+  .contact-pill:nth-child(2) i{color:var(--live-yellow);}
+
+  /* ===== Location ===== */
+  .location-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:22px;
+    display:flex;
+    gap:14px;
+    align-items:flex-start;
+  }
+  .location-card .pin{
+    width:44px;height:44px;
+    background:var(--wire-red);
+    border-radius:50%;
+    flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;font-size:1.2rem;
+  }
+  .location-card h3{color:var(--navy);margin-bottom:4px;font-size:1.02rem;}
+  .location-card p{color:var(--ink-soft);font-size:0.9rem;}
+
+  /* ===== CTA band ===== */
+  .cta-band{
+    background:linear-gradient(120deg,var(--live-yellow),#e0a600);
+    padding:38px 0;
+    text-align:center;
+  }
+  .cta-band h2{color:var(--navy-deep);font-size:1.5rem;margin-bottom:8px;}
+  .cta-band p{color:#5b4400;margin-bottom:20px;font-size:0.95rem;}
+  .cta-band .btn-primary{background:var(--navy-deep);color:#fff;}
+
+  /* ===== Footer ===== */
+  footer{
+    background:var(--navy-deep);
+    color:#9db4c9;
+    padding:36px 0 26px;
+    font-size:0.85rem;
+  }
+  .footer-top{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+    padding-bottom:22px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    margin-bottom:18px;
+  }
+  .footer-brand .brand-word{color:#fff;font-size:1.2rem;}
+  .footer-brand p{margin-top:8px;color:#7f97ac;max-width:42ch;}
+  footer .foot-bottom{text-align:center;color:#6d859c;font-size:0.78rem;}
+
+  /* ===== Floating action buttons ===== */
+  .fab-group{
+    position:fixed;
+    bottom:18px;
+    right:18px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    z-index:60;
+  }
+  .fab{
+    width:54px;height:54px;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.5rem;
+    box-shadow:0 8px 20px rgba(0,0,0,.25);
+    color:#fff;
+  }
+  .fab-whatsapp{background:#25D366;}
+  .fab-call{background:var(--wire-red);}
+  .fab:active{transform:scale(.92);}
+  .fab-whatsapp{animation:pulse-glow 2.4s ease-in-out infinite;}
+  @keyframes pulse-glow{
+    0%,100%{box-shadow:0 8px 20px rgba(0,0,0,.25),0 0 0 0 rgba(37,211,102,.5);}
+    50%{box-shadow:0 8px 20px rgba(0,0,0,.25),0 0 0 10px rgba(37,211,102,0);}
+  }
+
+  /* ===== Responsive ===== */
+  @media(min-width:640px){
+    .hero h1{font-size:2.9rem;}
+    .products-grid{grid-template-columns:repeat(3,1fr);}
+    .why-grid{grid-template-columns:repeat(4,1fr);}
+  }
+  @media(min-width:900px){
+    .hero-inner{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      align-items:center;
+      gap:40px;
+    }
+    .hero-media{
+      border-radius:20px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow:0 25px 60px rgba(0,0,0,.35);
+    }
+    .products-grid{grid-template-columns:repeat(4,1fr);}
+    .footer-top{flex-direction:row;justify-content:space-between;}
+    .location-flex{display:flex;gap:20px;}
+    .location-flex .location-card{flex:1;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none !important;animation:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<!-- Top utility bar -->
+<div class="topbar">
+  <div class="wrap">
+    <span><i class="fa-regular fa-clock"></i> প্রতিদিন সকাল ৮টা – রাত ৯টা খোলা</span>
+    <span><strong>সেরা মানের পণ্য, নির্ভরযোগ্য সেবা</strong></span>
+  </div>
+</div>
+
+<!-- Header -->
+<header>
+  <div class="wrap header-row">
+    <div class="logo">
+      <div class="logo-badge"><i class="fa-solid fa-house-chimney-window"></i></div>
+      <div class="logo-text">
+        <div class="brand-word">আনেজ</div>
+        <small>ইলেকট্রিক এন্ড হার্ডওয়্যার সার্ভিসিং সেন্টার</small>
+      </div>
+    </div>
+    <a href="tel:01941919306" class="call-btn"><i class="fa-solid fa-phone-volume"></i> কল করুন</a>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <i class="fa-solid fa-bolt spark spark-1"></i>
+  <i class="fa-solid fa-plug spark spark-2"></i>
+  <i class="fa-solid fa-screwdriver-wrench spark spark-3"></i>
+  <div class="wrap hero-inner">
+    <div class="hero-text">
+      <span class="ribbon"><i class="fa-solid fa-bolt"></i> হাকিমপুর, দিনাজপুরের বিশ্বস্ত ঠিকানা</span>
+      <h1>ঘরের সব <span class="accent">ইলেকট্রিক ও হার্ডওয়্যার</span> সমাধান এক জায়গায়</h1>
+      <p class="lead">তার, সুইচ-সকেট থেকে শুরু করে মোটর-পাম্প সার্ভিসিং, হাউস ওয়্যারিং, এসি-ফ্রিজের সমস্যা — সব কাজ করা হয় বিশ্বস্ততার সাথে, অভিজ্ঞ হাতে।</p>
+      <div class="hero-actions">
+        <a href="https://wa.me/8801780444224" class="btn btn-primary"><i class="fa-brands fa-whatsapp"></i> হোয়াটসঅ্যাপে মেসেজ দিন</a>
+        <a href="#products" class="btn btn-outline">পণ্য দেখুন</a>
+      </div>
+      <div class="hero-strip">
+        <div class="item"><div class="n">২০+</div><div class="l">পণ্যের ক্যাটাগরি</div></div>
+        <div class="item"><div class="n">সার্ভিসিং</div><div class="l">মোটর, এসি, ফ্রিজ</div></div>
+        <div class="item"><div class="n">১০০%</div><div class="l">বিশ্বস্ততার নিশ্চয়তা</div></div>
+      </div>
+    </div>
+    <div class="hero-media">
+      <img src="805218668_1759759695167023_1884557552880923479_n.jpg" alt="আনেজ ইলেকট্রিক এন্ড হার্ডওয়্যার পণ্যসমূহ">
+    </div>
+  </div>
+</section>
+<div class="wire-divider"></div>
+
+<!-- Products -->
+<section class="section" id="products">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>আমাদের পণ্যসমূহ</h2>
+      <div class="underline-bolt"><span></span><span></span><span></span></div>
+      <p>দোকানে পাওয়া যায় উন্নতমানের ইলেকট্রিক ও হার্ডওয়্যার মালামাল</p>
+    </div>
+    <div class="products-grid">
+      <div class="product-card"><div class="icon"><i class="fa-solid fa-plug-circle-bolt"></i></div><h3>ইলেকট্রিক তার ও ফ্যানেল</h3></div>
+      <div class="product-card"><div class="icon"><i class="fa-solid fa-toggle-on"></i></div><h3>সুইচ, সকেট ও সার্কিট ব্রেকার</h3></div>
+      <div class="product-card"><div class="icon"><i class="fa-solid fa-lightbulb"></i></div><h3>এলইডি লাইট ও বাল্ব</h3></div>
+      <div class="product-card"><div class="icon"><i class="fa-solid fa-fan"></i></div><h3>ফ্যান, রেগুলেটর ও অন্যান্য ইলেকট্রিক পণ্য</h3></div>
+      <div class="product-card"><div class="icon"><i class="fa-solid fa-faucet"></i></div><h3>পাইপ, ফিটিংস ও প্লাম্বিং মালামাল</h3></div>
+      <div class="product-card"><div class="icon"><i class="fa-solid fa-lock"></i></div><h3>নাট, বোল্ট, তালা ও হার্ডওয়্যার সামগ্রী</h3></div>
+      <div class="product-card"><div class="icon"><i class="fa-solid fa-paint-roller"></i></div><h3>রং, সিমেন্ট, আঠা ও টুলস সামগ্রী</h3></div>
+      <div class="product-card"><div class="icon"><i class="fa-solid fa-trowel-bricks"></i></div><h3>এবং অন্যান্য নির্মাণসামগ্রী ও হার্ডওয়্যার পণ্য</h3></div>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery from poster -->
+<section class="section alt-bg">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>আমাদের পণ্যের সংগ্রহ</h2>
+      <div class="underline-bolt"><span></span><span></span><span></span></div>
+    </div>
+    <div class="gallery-shot">
+      <img src="805218668_1759759695167023_1884557552880923479_n.jpg" alt="আনেজ ইলেকট্রিক এন্ড হার্ডওয়্যার সকল পণ্যের ছবি">
+    </div>
+    <p class="gallery-caption">তার, সুইচ-সকেট, সার্কিট ব্রেকার, লাইট, ফ্যান, পাইপ, তালা ও আরও অনেক কিছু — সরাসরি দোকানে এসে দেখুন</p>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>আমাদের সার্ভিসসমূহ</h2>
+      <div class="underline-bolt"><span></span><span></span><span></span></div>
+      <p>বিশ্বস্ততার সাথে করা হয় সকল প্রকার ইলেকট্রিক কাজ</p>
+    </div>
+    <div class="service-list">
+      <div class="service-item"><div class="num">১</div><div><h3>হাউস ওয়্যারিং</h3><p>নতুন বাড়ি বা ফ্ল্যাটের সম্পূর্ণ ইলেকট্রিক ওয়্যারিং করা হয়।</p></div></div>
+      <div class="service-item"><div class="num">২</div><div><h3>ইলেকট্রিক প্যানেল</h3><p>বাসা-বাড়ি ও দোকানের জন্য নিরাপদ ইলেকট্রিক প্যানেল স্থাপন।</p></div></div>
+      <div class="service-item"><div class="num">৩</div><div><h3>মোটর, পাম্প, জেনারেটর সার্ভিসিং ও রিপেয়ারিং</h3><p>যেকোনো সমস্যায় দ্রুত মেরামত ও সার্ভিসিং সেবা।</p></div></div>
+      <div class="service-item"><div class="num">৪</div><div><h3>ইনভার্টার, ইউপিএস, চার্জার সার্ভিসিং</h3><p>বৈদ্যুতিক ব্যাকআপ যন্ত্রপাতির যত্ন ও মেরামত।</p></div></div>
+      <div class="service-item"><div class="num">৫</div><div><h3>ফ্যান, লাইট, সুইচ, সকেট ফিটিং</h3><p>নতুন সংযোগ থেকে শুরু করে পুরনো ফিটিং পরিবর্তন।</p></div></div>
+      <div class="service-item"><div class="num">৬</div><div><h3>এসি ও ফ্রিজ বৈদ্যুতিক সমস্যার সমাধান</h3><p>এসি ও ফ্রিজের ইলেকট্রিক জনিত সকল সমস্যার সমাধান।</p></div></div>
+    </div>
+    <div class="promise-banner">এবং সকল প্রকার ইলেকট্রিক কাজ বিশ্বস্ততার সাথে করা হয়।</div>
+  </div>
+</section>
+
+<!-- Why choose us -->
+<section class="section alt-bg">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>কেন আমাদের বেছে নেবেন</h2>
+      <div class="underline-bolt"><span></span><span></span><span></span></div>
+    </div>
+    <div class="why-grid">
+      <div class="why-card"><div class="emoji"><i class="fa-solid fa-trophy"></i></div><h3>সেরা মানের পণ্য</h3><p>উন্নতমানের ব্র্যান্ডের সামগ্রী</p></div>
+      <div class="why-card"><div class="emoji"><i class="fa-solid fa-handshake"></i></div><h3>বিশ্বস্ত সেবা</h3><p>প্রতিটি কাজ সততার সাথে সম্পন্ন</p></div>
+      <div class="why-card"><div class="emoji"><i class="fa-solid fa-screwdriver-wrench"></i></div><h3>অভিজ্ঞ কারিগর</h3><p>দক্ষ হাতে সঠিক সমাধান</p></div>
+      <div class="why-card"><div class="emoji"><i class="fa-solid fa-stopwatch"></i></div><h3>দ্রুত সার্ভিস</h3><p>কল দিলেই দ্রুত সাড়া</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Owner / contact -->
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>যোগাযোগ করুন</h2>
+      <div class="underline-bolt"><span></span><span></span><span></span></div>
+    </div>
+    <div class="owner-card">
+      <div class="owner-avatar"><i class="fa-solid fa-user-tie"></i></div>
+      <div>
+        <h3>আনেজ</h3>
+        <div class="role">প্রোপ্রাইটার</div>
+      </div>
+      <div class="owner-contacts">
+        <a href="https://wa.me/8801780444224" class="contact-pill">
+          <span><span class="label">হোয়াটসঅ্যাপ</span><br><span class="value">01780444224</span></span>
+          <span><i class="fa-brands fa-whatsapp"></i></span>
+        </a>
+        <a href="tel:01941919306" class="contact-pill">
+          <span><span class="label">মোবাইল</span><br><span class="value">01941919306</span></span>
+          <span><i class="fa-solid fa-phone"></i></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Location -->
+<section class="section alt-bg">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>ঠিকানা</h2>
+      <div class="underline-bolt"><span></span><span></span><span></span></div>
+    </div>
+    <div class="location-flex">
+      <div class="location-card">
+        <div class="pin"><i class="fa-solid fa-location-dot"></i></div>
+        <div>
+          <h3>দোকানের ঠিকানা</h3>
+          <p>রাউতারা মোড়, ছাতনী, ঘোড়াঘাট রোড, হাকিমপুর, দিনাজপুর</p>
+        </div>
+      </div>
+      <div class="location-card">
+        <div class="pin"><i class="fa-solid fa-clock"></i></div>
+        <div>
+          <h3>খোলার সময়</h3>
+          <p>প্রতিদিন সকাল ৮টা থেকে রাত ৯টা পর্যন্ত খোলা থাকে</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA band -->
+<section class="cta-band">
+  <div class="wrap">
+    <h2>এখনই যোগাযোগ করুন</h2>
+    <p>ইলেকট্রিক বা হার্ডওয়্যার সংক্রান্ত যেকোনো প্রয়োজনে আমরা আছি আপনার পাশে</p>
+    <a href="https://wa.me/8801780444224" class="btn btn-primary"><i class="fa-brands fa-whatsapp"></i> হোয়াটসঅ্যাপে যোগাযোগ করুন</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="brand-word">আনেজ ইলেকট্রিক এন্ড হার্ডওয়্যার</div>
+        <p>সার্ভিসিং সেন্টার — এখানে উন্নতমানের ইলেকট্রিক ও হার্ডওয়্যার মালামাল পাওয়া যায় এবং সার্ভিসিং করা হয়।</p>
+      </div>
+      <div>
+        <div style="color:#fff;font-weight:600;margin-bottom:8px;">যোগাযোগ</div>
+        <p>WhatsApp: 01780444224</p>
+        <p>মোবাইল: 01941919306</p>
+        <p>রাউতারা মোড়, ছাতনী, ঘোড়াঘাট রোড, হাকিমপুর, দিনাজপুর</p>
+      </div>
+    </div>
+    <div class="foot-bottom">© ২০২৬ আনেজ ইলেকট্রিক এন্ড হার্ডওয়্যার সার্ভিসিং সেন্টার। সর্বস্বত্ব সংরক্ষিত।</div>
+  </div>
+</footer>
+
+<!-- Floating buttons -->
+<div class="fab-group">
+  <a href="https://wa.me/8801780444224" class="fab fab-whatsapp"><i class="fa-brands fa-whatsapp"></i></a>
+  <a href="tel:01941919306" class="fab fab-call"><i class="fa-solid fa-phone"></i></a>
+</div>
+
+</body>
+</html>
